@@ -275,10 +275,10 @@ function bool checkLetra(string input) {
                 writeLine("La letra no se corresponde con el DNI.");
             }
             break;
-        
-        
 
+        default:
+            writeLine("❌ Error en la entrada de datos.")
+            break;
     }
-
     return false;
 }
