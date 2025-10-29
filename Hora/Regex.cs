@@ -52,4 +52,42 @@ procedure validarHoraRegex(string message, ref string hora) {
 }
 
 
+procedure validarHoraManualmente(string message, ref string hora) {
 
+    bool isFormatoOk = false;
+
+    do {
+        writeLine(message);
+        var input = readLine().Trim();
+
+        string[] numeros = input.Split(":");
+
+        isFormatoOk = isHoraInRange(numeros);
+
+        if (isFormatoOk) {
+            hora = input;
+        } else {
+            writeLine("🚫 Hora no válida.");
+        }
+    } while (!isFormatoOk);
+}
+
+function bool isHoraInRange(string[] numeros) {
+
+
+    int horas = numeros[0];
+    int minutos = numeros[1];
+    int segundos = numeros [2];
+
+    if ((horas < 0) || (horas > 23)) {
+        writeLine("⚠️ La hora debe estar entre 0-23.");
+        return false;
+    } else if ((minutos < 0) || (minutos > 59)) {
+        writeLine("⚠️ Los minutos deben estar entre 0-59.");
+        return false;
+    } else if ((segundos < 0) || (segundos > 59)) {
+        writeLine("⚠️ Los segundos deben estar entre 0-59.");
+        return false;
+    }
+    return true;
+}
