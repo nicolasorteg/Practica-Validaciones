@@ -74,11 +74,20 @@ procedure validarHoraManualmente(string message, ref string hora) {
 
 function bool isHoraInRange(string[] numeros) {
 
+    int horas;
+    int minutos;
+    int segundos;
 
-    int horas = numeros[0];
-    int minutos = numeros[1];
-    int segundos = numeros [2];
+    try {
+        horas = (int)numeros[0];
+        minutos = (int)numeros[1];
+        segundos = (int)numeros[2];
+    } catch (InvalidFormatException e) {
+        writeLine("⚠️ El formato introducido es incorrecto. Formato válido -> HH:MM:SS");
+        return false;
+    }
 
+    
     if ((horas < 0) || (horas > 23)) {
         writeLine("⚠️ La hora debe estar entre 0-23.");
         return false;
