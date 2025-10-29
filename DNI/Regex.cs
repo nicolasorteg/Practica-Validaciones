@@ -48,12 +48,12 @@ function bool checkLetra(string input) {
     int numeros = (int)cadNumeros;
 
     // almacenamos la letra en otra variable para comprobar si es correcta
-    var letra = input[8]];
+    var letra = input[8];
 
     int modulo = numeros % 23;
 
     // sacamos la letra correcta para el número
-    var letraEsperada = tablaLetras.Substring(modulo, 1); 
+    var letraEsperada = tablaLetras[modulo]; 
 
     // si coinciden, el DNI es válido, sino no
     if (letra == letraEsperada) {
