@@ -17,7 +17,7 @@ function string dni(string message) {
 
     do {
         writeLine(message); // impresión del mensaje que solicita el DNI 
-        var input = readLine();
+        var input = readLine().Trim();
         
         isValid = regexDni.IsMatch(input); // aplicamos el regex
 
@@ -48,7 +48,7 @@ function bool checkLetra(string input) {
     int numeros = (int)cadNumeros;
 
     // almacenamos la letra en otra variable para comprobar si es correcta
-    var letra = input.Substring(8,1);
+    var letra = input[8]];
 
     int modulo = numeros % 23;
 
