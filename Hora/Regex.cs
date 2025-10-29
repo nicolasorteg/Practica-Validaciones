@@ -30,3 +30,26 @@ procedure ejecutarMenu(ref string hora) {
     }
 }
 
+procedure validarHoraRegex(string message, ref string hora) {
+
+    bool isFormatoOk = false;
+
+    var patron = @"^([0-9]|([0-1]\d|[2][0-3])):[0-5]\d:[0-5]\d$"; // falla si se introduce 24:00:00
+    var regexHora = Regex(patron);
+
+    do {
+        writeLine(message);
+        var input = readLine().Trim();
+
+        isFormatoOk = regexPatron.IsMatch(input);
+
+        if (isFormatoOk) {
+            hora = input;
+        } else {
+            writeLine("🚫 Hora no válida.");
+        }
+    } while (!isFormatoOk);
+}
+
+
+
